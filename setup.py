@@ -58,7 +58,6 @@ setup(name = 'zojax.authenticate.httpcredentials',
                           'zope.app.security',
                           'zope.app.publisher',
                           'zope.i18nmessageid',
-                          'z3c.autoinclude',
                           'zojax.authentication',
                           ],
       extras_require = dict(
