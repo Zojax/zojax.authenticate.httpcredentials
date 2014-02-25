@@ -1,0 +1,43 @@
+========
+Document
+========
+
+    >>> from zope.testbrowser.testing import Browser
+
+    >>> root = getRootFolder()
+
+    >>> actor = Browser()
+    >>> actor.handleErrors = False
+    >>> actor.addHeader("Authorization", "Basic mgr:mgrpw")
+
+
+Install Httpcredentials plugin
+
+
+    >>> actor.open("http://localhost/settings/system/authentication/")
+    >>> actor.getControl('Install').click()
+    >>> actor.getControl(name='cred_factory_ids:list').value = ['http.credentials']
+    >>> print actor.contents
+    <!DOCTYPE ...
+    ...
+          <h2>Installed credentials plugins</h2>
+    ...
+    	      <span>Default credentials plugin</span>
+    ...
+    	<h2>Available credentials plugins</h2>
+    ...
+    	      <span>HTTP Basic credentials plugin</span>
+    ...
+    </html>
+
+    >>> actor.getControl(name='form.cred_install').click()
+    >>> print actor.contents
+    <!DOCTYPE ...
+    ...
+          <h2>Installed credentials plugins</h2>
+    ...
+    	      <span>Default credentials plugin</span>
+    ...
+    	      <span>HTTP Basic credentials plugin</span>
+    ...
+    </html>

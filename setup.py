@@ -24,6 +24,7 @@ def read(*rnames):
 version='0.0.1dev'
 
 
+
 setup(name = 'zojax.authenticate.httpcredentials',
       version = version,
       author = 'Arvid Paeglit',
@@ -51,7 +52,6 @@ setup(name = 'zojax.authenticate.httpcredentials',
       package_dir = {'':'src'},
       namespace_packages=['zojax', 'zojax.authenticate'],
       install_requires = ['setuptools',
-                          'zope.component',
                           'zope.interface',
                           'zope.schema',
                           'zope.publisher',
@@ -60,15 +60,14 @@ setup(name = 'zojax.authenticate.httpcredentials',
                           'zope.i18nmessageid',
                           'zojax.authentication',
                           ],
-      extras_require = dict(
-        test = ['zope.app.testing',
-                'zope.app.securitypolicy',
-                'zope.app.server',
-                'zope.testbrowser',
-                'zc.testbrowser',
-                'z3c.sampledata',
-                ]
-        ),
+      extras_require = dict(test=['zope.app.testing',
+                                  'zope.app.zcmlfiles',
+                                  'zope.testing',
+                                  'zope.testbrowser',
+                                  'zope.app.server',
+                                  'zojax.content.type',
+                                  'zojax.autoinclude',
+                                  ]),
       include_package_data = True,
       zip_safe = False
       )
