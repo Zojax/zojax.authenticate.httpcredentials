@@ -34,7 +34,6 @@ class HTTPCredentialsPlugin(Persistent, Contained):
 
     def extractCredentials(self, request):
         global cache
-        import pdb; pdb.set_trace()
         if cache.defaultcreds is not None:
             creds, temp = cache.defaultcreds
             if temp:
